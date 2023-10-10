@@ -124,15 +124,3 @@ output "public_ip" {
   value       = aws_lb.example.dns_name
   description = "The public IP address of the web server"
 }
-terraform {
-  backend "s3" {
-    # Replace this with your bucket name!
-    bucket         = "terraform-u-pandrunning-state"
-    key            = "global/s3/terraform.tfstate"
-    region         = "us-east-2"
-
-    # Replace this with your DynamoDB table name!
-    dynamodb_table = "terraform-u-pandrunning-locks"
-    encrypt        = true
-  }
-}
